@@ -1,0 +1,44 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma"
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  clients   Client[]
+}
+
+model Client {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String
+  phone     String?
+  createdAt DateTime @default(now())
+  invoices  Invoice[]
+}
+
+model Invoice {
+  id        Int      @id @default(autoincrement())
+  client    Client   @relation(fields: [clientId], references: [id])
+  clientId  Int
+  status    String   @default("draft")
+  createdAt DateTime @default(now())
+  lineItems LineItem[]
+}
+
+model LineItem {
+  id        Int      @id @default(autoincrement())
+  invoice   Invoice  @relation(fields: [invoiceId], references: [id])
+  invoiceId Int
+  description String
+  quantity  Int
+  unitPrice Float
+  createdAt DateTime @default(now())
+}

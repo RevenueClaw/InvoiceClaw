@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClawFlow - Effortless Invoicing for Freelancers</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/svg+xml" href="/brand/logo.svg">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <img src="/brand/logo.svg" alt="ClawFlow" width="120" height="40">
+      </div>
+      <nav class="nav">
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="/pricing" class="btn btn-primary">Get Started</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1>Simplify Your Invoicing</h1>
+          <p class="hero-subtitle">
+            ClawFlow helps freelancers and small teams create professional invoices, 
+            track payments, and get paid faster — all in one intuitive platform.
+          </p>
+          <div class="hero-cta">
+            <a href="/pricing" class="btn btn-primary btn-large">Start Free Trial</a>
+            <a href="#features" class="btn btn-secondary btn-large">Learn More</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="/brand/preview.png" alt="ClawFlow Dashboard" width="600" height="400">
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="features">
+      <div class="container">
+        <h2>Everything you need to get paid</h2>
+        <div class="features-grid">
+          <div class="feature">
+            <div class="feature-icon">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+              </svg>
+            </div>
+            <h3>Easy Invoicing</h3>
+            <p>Create professional invoices in minutes with our intuitive interface. No accounting experience required.</p>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+            <h3>Get Paid Faster</h3>
+            <p>Track payments, send reminders, and accept online payments to ensure you get paid on time.</p>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+              </svg>
+            </div>
+            <h3>Simple & Fast</h3>
+            <p>No complicated setup. Start invoicing in under 5 minutes. No credit card required to start.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing" class="pricing">
+      <div class="container">
+        <h2>Simple, Transparent Pricing</h2>
+        <div class="pricing-grid">
+          <div class="price-card">
+            <h3>Basic</h3>
+            <div class="price">
+              <span class="currency">$</span>
+              <span class="amount">15</span>
+              <span class="period">/month</span>
+            </div>
+            <ul>
+              <li>Up to 50 invoices/month</li>
+              <li>Basic payment tracking</li>
+              <li>Email support</li>
+            </ul>
+            <a href="/pricing?plan=basic" class="btn btn-secondary">Get Started</a>
+          </div>
+          <div class="price-card featured">
+            <div class="featured-badge">Most Popular</div>
+            <h3>Pro</h3>
+            <div class="price">
+              <span class="currency">$</span>
+              <span class="amount">29</span>
+              <span class="period">/month</span>
+            </div>
+            <ul>
+              <li>Unlimited invoices</li>
+              <li>Advanced reporting</li>
+              <li>Client management</li>
+              <li>Payment reminders</li>
+              <li>Multi-currency support</li>
+              <li>Priority support</li>
+            </ul>
+            <a href="/pricing?plan=pro" class="btn btn-primary">Get Started</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container">
+        <h2>Ready to get paid on time?</h2>
+        <p>Join hundreds of freelancers who trust ClawFlow.</p>
+        <a href="/pricing" class="btn btn-primary btn-large">Start Free Trial</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 ClawFlow. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="/brand/brand.json" type="application/json" id="brand-data"></script>
+</body>
+</html>

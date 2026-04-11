@@ -1,0 +1,15 @@
+app = "invoice-tracker-saas-2"
+
+[build]
+  dockerfile = "./Dockerfile"
+
+[env]
+  PORT = "3000"
+
+[[services]]
+  internal_port = 3000
+  protocol = "tcp"
+  auto_start_machines = true
+  auto_stop_machines = true
+  min_machines = 0
+  max_machines = 2

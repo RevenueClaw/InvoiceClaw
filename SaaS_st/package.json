@@ -1,0 +1,24 @@
+{
+  "name": "saas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --inspect src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.102.1",
+    "body-parser": "^2.2.2",
+    "crypto-streams": "^1.1.4",
+    "dotenv": "^17.4.1",
+    "express": "^5.2.1",
+    "openssl": "^2.0.0",
+    "stripe": "^22.0.0"
+  }
+}
