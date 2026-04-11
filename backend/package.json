@@ -4,9 +4,9 @@
   "description": "Backend API for Invoice Tracker SaaS",
   "main": "build/server.js",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && prisma generate",
     "dev": "nodemon src/server.ts",
-    "start": "node build/server.js",
+    "start": "node dist/server.js",
     "test": "jest",
     "test:watch": "jest --watch"
   },
