@@ -4,6 +4,7 @@
   "description": "Backend API for InvoiceClaw SaaS",
   "main": "build/server.js",
   "scripts": {
+    "prisma-generate": "prisma generate",
     "generate": "prisma generate",
     "postinstall": "npm run generate",
     "build": "rm -rf build && tsc",
