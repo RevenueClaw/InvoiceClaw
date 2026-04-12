@@ -227,3 +227,8 @@ export const client = {
     }
   },
 };
+
+export default {
+  invoice,
+  client
+};
