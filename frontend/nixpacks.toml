@@ -1,0 +1,6 @@
+[phases.build]
+cmds = ["npm ci && npm run build"]
+
+[deploy]
+startCommand = ""
+outputDirectory = "dist"
