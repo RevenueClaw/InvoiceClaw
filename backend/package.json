@@ -1,7 +1,7 @@
 {
-  "name": "invoice-tracker-backend",
+  "name": "invoice-claw-backend",
   "version": "0.1.0",
-  "description": "Backend API for Invoice Tracker SaaS",
+  "description": "Backend API for InvoiceClaw SaaS",
   "main": "build/server.js",
   "scripts": {
     "build": "rm -rf build && tsc && prisma generate",
