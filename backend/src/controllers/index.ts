@@ -5,8 +5,6 @@ const { PrismaClient } = require('@prisma/client');
 
 const prisma = new PrismaClient();
 
-const prisma = new PrismaClient();
-
 const invoiceRouter = express.Router();
 
 invoiceRouter.get('/', async (req: any, res: any) => {
