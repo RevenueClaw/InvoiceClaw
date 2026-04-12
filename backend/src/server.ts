@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const express = require('express');
-const middleware = require('./middleware');
+const { default: middleware } = require('./middleware');
 const controllers = require('./controllers');
 
 const app = express();
