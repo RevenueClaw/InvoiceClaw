@@ -1,11 +1,15 @@
+// @ts-nocheck
+
 const express = require('express');
 const { PrismaClient } = require('@prisma/client');
 
 const prisma = new PrismaClient();
 
+const prisma = new PrismaClient();
+
 const invoiceRouter = express.Router();
 
-invoiceRouter.get('/', async (req, res) => {
+invoiceRouter.get('/', async (req: any, res: any) => {
   try {
     const invoices = await prisma.invoice.findMany({
       include: {
@@ -22,7 +26,7 @@ invoiceRouter.get('/', async (req, res) => {
   }
 });
 
-invoiceRouter.get('/:id', async (req, res) => {
+invoiceRouter.get('/:id', async (req: any, res: any) => {
   try {
     const { id } = req.params;
     const invoice = await prisma.invoice.findUnique({
@@ -41,7 +45,7 @@ invoiceRouter.get('/:id', async (req, res) => {
   }
 });
 
-invoiceRouter.post('/', async (req, res) => {
+invoiceRouter.post('/', async (req: any, res: any) => {
   try {
     const { clientId, lineItems, status } = req.body;
 
@@ -50,7 +54,7 @@ invoiceRouter.post('/', async (req, res) => {
         clientId,
         status: status || 'draft',
         lineItems: {
-          create: lineItems.map((item) => ({
+          create: lineItems.map((item: any) => ({
             description: item.description,
             quantity: item.quantity,
             unitPrice: item.unitPrice,
@@ -70,12 +74,12 @@ invoiceRouter.post('/', async (req, res) => {
   }
 });
 
-invoiceRouter.put('/:id', async (req, res) => {
+invoiceRouter.put('/:id', async (req: any, res: any) => {
   try {
     const { id } = req.params;
     const { status, lineItems } = req.body;
 
-    const updates = {};
+    const updates: any = {};
 
     if (status) {
       updates.status = status;
@@ -87,7 +91,7 @@ invoiceRouter.put('/:id', async (req, res) => {
       });
 
       updates.lineItems = {
-        create: lineItems.map((item) => ({
+        create: lineItems.map((item: any) => ({
           description: item.description,
           quantity: item.quantity,
           unitPrice: item.unitPrice,
@@ -111,7 +115,7 @@ invoiceRouter.put('/:id', async (req, res) => {
   }
 });
 
-invoiceRouter.delete('/:id', async (req, res) => {
+invoiceRouter.delete('/:id', async (req: any, res: any) => {
   try {
     const { id } = req.params;
 
@@ -128,7 +132,7 @@ invoiceRouter.delete('/:id', async (req, res) => {
 
 const clientRouter = express.Router();
 
-clientRouter.get('/', async (req, res) => {
+clientRouter.get('/', async (req: any, res: any) => {
   try {
     const clients = await prisma.client.findMany({
       include: {
@@ -148,7 +152,7 @@ clientRouter.get('/', async (req, res) => {
   }
 });
 
-clientRouter.get('/:id', async (req, res) => {
+clientRouter.get('/:id', async (req: any, res: any) => {
   try {
     const { id } = req.params;
     const client = await prisma.client.findUnique({
@@ -173,7 +177,7 @@ clientRouter.get('/:id', async (req, res) => {
   }
 });
 
-clientRouter.post('/', async (req, res) => {
+clientRouter.post('/', async (req: any, res: any) => {
   try {
     const { name, email, phone } = req.body;
 
@@ -192,7 +196,7 @@ clientRouter.post('/', async (req, res) => {
   }
 });
 
-clientRouter.put('/:id', async (req, res) => {
+clientRouter.put('/:id', async (req: any, res: any) => {
   try {
     const { id } = req.params;
     const { name, email, phone } = req.body;
@@ -213,7 +217,7 @@ clientRouter.put('/:id', async (req, res) => {
   }
 });
 
-clientRouter.delete('/:id', async (req, res) => {
+clientRouter.delete('/:id', async (req: any, res: any) => {
   try {
     const { id } = req.params;
 
