@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { ThemeProvider } from 'next-themes';
 
 import Navbar from './components/Navbar';
 import Dashboard from './pages/Dashboard';
@@ -11,26 +10,22 @@ import { AppSidebar } from './components/AppSidebar';
 function App() {
   return (
     <Router>
-      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-        <div className="flex h-screen overflow-hidden bg-background">
-          {/* Left Sidebar */}
-          <AppSidebar />
+      <div className="flex h-screen overflow-hidden bg-gray-50">
+        {/* Sidebar */}
+        <AppSidebar />
 
-          {/* Right Side - Navbar + Content */}
-          <div className="flex-1 flex flex-col overflow-hidden">
-            <Navbar />
-
-            {/* Main Content Area with proper top padding */}
-            <main className="flex-1 overflow-auto p-6 md:p-8 pt-20">
-              <Routes>
-                <Route path="/" element={<Dashboard />} />
-                <Route path="/invoices" element={<Invoices />} />
-                <Route path="/create" element={<CreateInvoice />} />
-              </Routes>
-            </main>
-          </div>
+        {/* Main Area */}
+        <div className="flex-1 flex flex-col overflow-hidden">
+          <Navbar />
+          <main className="flex-1 overflow-auto p-8 pt-24">
+            <Routes>
+              <Route path="/" element={<Dashboard />} />
+              <Route path="/invoices" element={<Invoices />} />
+              <Route path="/create" element={<CreateInvoice />} />
+            </Routes>
+          </main>
         </div>
-      </ThemeProvider>
+      </div>
     </Router>
   );
 }
