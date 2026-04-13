@@ -10,9 +10,9 @@ function App() {
   return (
     <Router>
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-        <div className="min-h-screen bg-gray-50">
+        <div className="min-h-screen bg-background">
           <Navbar />
-          <main className="pt-20 p-8">
+          <main className="pt-20 p-6 md:p-8">
             <Routes>
               <Route path="/" element={<Dashboard />} />
               <Route path="/invoices" element={<Invoices />} />
