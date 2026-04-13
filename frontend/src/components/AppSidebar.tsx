@@ -37,17 +37,17 @@ export function AppSidebar() {
 
   return (
     <Sidebar collapsible="icon" className="border-r border-border">
-      <SidebarHeader>
-        <div className="flex items-center gap-3 px-4 py-4">
-          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary text-primary-foreground font-bold text-2xl">
-            IC
-          </div>
-          <div className="flex flex-col">
-            <span className="font-semibold text-xl tracking-tight">InvoiceClaw</span>
-            <span className="text-xs text-muted-foreground">Invoice OS</span>
-          </div>
-        </div>
-      </SidebarHeader>
+     <SidebarHeader>
+  <div className="flex items-center gap-3 px-4 py-5">
+    <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-600 to-blue-600 text-white font-bold text-2xl">
+      IC
+    </div>
+    <div>
+      <div className="font-semibold text-xl tracking-tight text-foreground">InvoiceClaw</div>
+      <div className="text-xs text-muted-foreground -mt-0.5">Invoice OS</div>
+    </div>
+  </div>
+</SidebarHeader>
 
       <SidebarContent>
         <SidebarGroup>
