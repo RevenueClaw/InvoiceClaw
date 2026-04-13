@@ -13,13 +13,11 @@ function App() {
     <Router>
       <SidebarProvider>
         <div className="flex h-screen bg-background overflow-hidden">
-          {/* Left Sidebar */}
           <AppSidebar />
 
-          {/* Main Area */}
           <div className="flex flex-1 flex-col overflow-hidden">
             <Navbar />
-            <main className="flex-1 overflow-auto p-6 md:p-8">
+            <main className="flex-1 overflow-auto p-6 md:p-8 pt-20">   {/* ← this pt-20 fixes the cutoff */}
               <Routes>
                 <Route path="/" element={<Dashboard />} />
                 <Route path="/invoices" element={<Invoices />} />
