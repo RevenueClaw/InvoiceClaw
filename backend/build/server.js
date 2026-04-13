@@ -6,8 +6,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // @ts-nocheck
 const multer_1 = __importDefault(require("multer"));
 const ai_1 = __importDefault(require("./routes/ai"));
-// ... after other app.use lines
-app.use('/api', ai_1.default); // or app.use('/api/ai', aiRoutes) if you prefer
 const upload = (0, multer_1.default)({ storage: multer_1.default.memoryStorage() });
 // ... after other routes
 app.use('/api', ai_1.default); // or app.use('/api/ai', aiRoutes) if you prefer
@@ -16,6 +14,7 @@ const { default: middleware } = require('./middleware');
 const controllers = require('./controllers');
 const app = express();
 const port = process.env.PORT || 3000;
+app.use('/api', ai_1.default);
 app.use(express.json());
 app.use(middleware());
 app.use('/api/invoices', controllers.invoiceRouter);

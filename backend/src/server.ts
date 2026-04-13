@@ -3,8 +3,6 @@ import multer from 'multer';
 import aiRoutes from './routes/ai';
 import aiRoutes from './routes/ai';   // ← Add this import
 
-// ... after other app.use lines
-app.use('/api', aiRoutes);   // or app.use('/api/ai', aiRoutes) if you prefer
 const upload = multer({ storage: multer.memoryStorage() });
 
 // ... after other routes
@@ -15,6 +13,10 @@ const controllers = require('./controllers');
 
 const app = express();
 const port = process.env.PORT || 3000;
+
+// AI Invoice Import Route
+import aiRoutes from './routes/ai';   // Import here, AFTER app is declared
+app.use('/api', aiRoutes);
 
 app.use(express.json());
 app.use(middleware());
