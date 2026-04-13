@@ -13,15 +13,12 @@ function App() {
     <Router>
       <SidebarProvider>
         <div className="flex h-screen bg-background overflow-hidden">
-          {/* Modern Collapsible Sidebar */}
+          {/* Left Sidebar */}
           <AppSidebar />
 
-          {/* Main Content Area */}
+          {/* Main Area */}
           <div className="flex flex-1 flex-col overflow-hidden">
-            {/* Your existing top Navbar */}
             <Navbar />
-
-            {/* Page Content */}
             <main className="flex-1 overflow-auto p-6 md:p-8">
               <Routes>
                 <Route path="/" element={<Dashboard />} />

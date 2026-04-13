@@ -125,7 +125,7 @@ const Dashboard: React.FC = () => {
                   dataKey="value"
                   label={({ name, percent }) => name + (percent ? ` ${(percent * 100).toFixed(0)}%` : '')}
                 >
-                  {mockStatusData.map((entry, index) => (
+                  {mockStatusData.map((_, index) => (
                     <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                   ))}
                 </Pie>
