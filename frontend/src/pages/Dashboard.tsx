@@ -2,14 +2,12 @@ import React, { useState, useEffect } from 'react';
 
 const Dashboard: React.FC = () => {
   const [connected, setConnected] = useState(false);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_API_URL}/health`)
       .then(res => res.json())
       .then(() => setConnected(true))
       .catch(() => setConnected(false))
-      .finally(() => setLoading(false));
   }, []);
 
   return (

@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 const Navbar: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
   return (
