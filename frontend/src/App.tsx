@@ -1,3 +1,4 @@
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Dashboard from './pages/Dashboard';
@@ -7,13 +8,13 @@ import CreateInvoice from './pages/CreateInvoice';
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-blue-50">
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
         <Navbar />
         <main className="pt-20 pb-12 px-4 sm:px-6 lg:px-8">
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/invoices" element={<Invoices />} />
-            <Route path="/create" element={<CreateInvoice />} />
+            <Route path="/create-invoice" element={<CreateInvoice />} />
           </Routes>
         </main>
       </div>
