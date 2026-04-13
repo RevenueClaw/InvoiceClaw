@@ -7,8 +7,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const multer_1 = __importDefault(require("multer"));
 const ai_1 = __importDefault(require("./routes/ai"));
 const upload = (0, multer_1.default)({ storage: multer_1.default.memoryStorage() });
-// ... after other routes
-app.use('/api', ai_1.default); // or app.use('/api/ai', aiRoutes) if you prefer
 const express = require('express');
 const { default: middleware } = require('./middleware');
 const controllers = require('./controllers');
