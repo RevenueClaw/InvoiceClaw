@@ -6,10 +6,13 @@ import { useTheme } from 'next-themes';
 
 const Navbar: React.FC = () => {
   const location = useLocation();
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme, resolvedTheme } = useTheme();
+
+  // Use resolvedTheme to avoid hydration mismatch
+  const currentTheme = resolvedTheme || theme;
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-sm dark:bg-gray-950 dark:border-gray-800">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border shadow-sm">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -18,7 +21,7 @@ const Navbar: React.FC = () => {
           </Link>
 
           {/* Navigation */}
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden md:flex items-center gap-3">
             <Link to="/">
               <Button variant={location.pathname === '/' ? "default" : "ghost"}>Dashboard</Button>
             </Link>
@@ -30,13 +33,13 @@ const Navbar: React.FC = () => {
             </Link>
           </div>
 
-          {/* Theme Toggle - This is the button we want */}
+          {/* Theme Toggle */}
           <Button
             variant="ghost"
             size="icon"
-            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            onClick={() => setTheme(currentTheme === 'dark' ? 'light' : 'dark')}
           >
-            {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+            {currentTheme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
           </Button>
         </div>
       </div>

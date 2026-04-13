@@ -12,7 +12,7 @@ function App() {
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
         <div className="min-h-screen bg-gray-50 dark:bg-gray-950">
           <Navbar />
-          <main className="pt-20 p-6 md:p-8">
+          <main className="pt-24 p-6 md:p-8">
             <Routes>
               <Route path="/" element={<Dashboard />} />
               <Route path="/invoices" element={<Invoices />} />
