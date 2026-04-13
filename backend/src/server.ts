@@ -1,5 +1,14 @@
 // @ts-nocheck
+import multer from 'multer';
+import aiRoutes from './routes/ai';
+import aiRoutes from './routes/ai';   // ← Add this import
 
+// ... after other app.use lines
+app.use('/api', aiRoutes);   // or app.use('/api/ai', aiRoutes) if you prefer
+const upload = multer({ storage: multer.memoryStorage() });
+
+// ... after other routes
+app.use('/api', aiRoutes); // or app.use('/api/ai', aiRoutes) if you prefer
 const express = require('express');
 const { default: middleware } = require('./middleware');
 const controllers = require('./controllers');
