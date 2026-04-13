@@ -13,7 +13,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/invoices" element={<Invoices />} />
-            <Route path="/create-invoice" element={<CreateInvoice />} />
+            <Route path="/create" element={<CreateInvoice />} />
           </Routes>
         </main>
       </div>
