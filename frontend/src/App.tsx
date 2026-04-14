@@ -7,6 +7,7 @@ import AppSidebar from './components/AppSidebar';
 import Dashboard from './pages/Dashboard';
 import Invoices from './pages/Invoices';
 import CreateInvoice from './pages/CreateInvoice';
+import Clients from './pages/Clients';        // ← Added
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
                 <Route path="/" element={<Dashboard />} />
                 <Route path="/invoices" element={<Invoices />} />
                 <Route path="/create" element={<CreateInvoice />} />
+                <Route path="/clients" element={<Clients />} />     {/* ← Added */}
               </Routes>
             </main>
           </div>
