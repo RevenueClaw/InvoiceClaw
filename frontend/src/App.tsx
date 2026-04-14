@@ -7,27 +7,22 @@ import AppSidebar from './components/AppSidebar';
 import Dashboard from './pages/Dashboard';
 import Invoices from './pages/Invoices';
 import CreateInvoice from './pages/CreateInvoice';
-import Clients from './pages/Clients';        // ← Added
+import Clients from './pages/Clients';
 
 function App() {
   return (
     <Router>
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
         <div className="flex h-screen flex-col bg-background">
-          {/* Top Navbar - full width */}
           <Navbar />
-
           <div className="flex flex-1 overflow-hidden">
-            {/* Collapsible Sidebar */}
             <AppSidebar />
-
-            {/* Main content area */}
             <main className="flex-1 overflow-auto bg-background p-6 md:p-8">
               <Routes>
                 <Route path="/" element={<Dashboard />} />
                 <Route path="/invoices" element={<Invoices />} />
                 <Route path="/create" element={<CreateInvoice />} />
-                <Route path="/clients" element={<Clients />} />     {/* ← Added */}
+                <Route path="/clients" element={<Clients />} />
               </Routes>
             </main>
           </div>
