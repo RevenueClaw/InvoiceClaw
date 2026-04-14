@@ -3,8 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
 
 const CreateInvoice: React.FC = () => {
   const navigate = useNavigate();
@@ -44,7 +42,7 @@ const CreateInvoice: React.FC = () => {
       navigate('/invoices');
     } catch (err) {
       console.error(err);
-      alert('❌ Failed to create invoice. Check console.');
+      alert('❌ Failed to create invoice');
     } finally {
       setLoading(false);
     }
@@ -53,15 +51,14 @@ const CreateInvoice: React.FC = () => {
   return (
     <div className="p-6 max-w-2xl mx-auto">
       <h1 className="text-3xl font-bold mb-8">Create New Invoice</h1>
-
       <Card>
         <CardHeader>
           <CardTitle>Invoice Details</CardTitle>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="space-y-2">
-              <Label htmlFor="clientName">Client Name</Label>
+            <div>
+              <label htmlFor="clientName" className="block text-sm font-medium mb-2">Client Name</label>
               <Input
                 id="clientName"
                 name="clientName"
@@ -72,8 +69,8 @@ const CreateInvoice: React.FC = () => {
               />
             </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="amount">Amount ($)</Label>
+            <div>
+              <label htmlFor="amount" className="block text-sm font-medium mb-2">Amount ($)</label>
               <Input
                 id="amount"
                 name="amount"
@@ -86,8 +83,8 @@ const CreateInvoice: React.FC = () => {
               />
             </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="dueDate">Due Date</Label>
+            <div>
+              <label htmlFor="dueDate" className="block text-sm font-medium mb-2">Due Date</label>
               <Input
                 id="dueDate"
                 name="dueDate"
@@ -98,14 +95,15 @@ const CreateInvoice: React.FC = () => {
               />
             </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="description">Description / Notes</Label>
-              <Textarea
+            <div>
+              <label htmlFor="description" className="block text-sm font-medium mb-2">Description / Notes</label>
+              <textarea
                 id="description"
                 name="description"
                 value={formData.description}
                 onChange={handleChange}
                 rows={4}
+                className="w-full px-3 py-2 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
                 placeholder="Web design services for Q2 campaign..."
               />
             </div>

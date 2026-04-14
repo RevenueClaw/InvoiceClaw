@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import { Upload, FileText, Loader2, CheckCircle } from 'lucide-react';
+import { Upload, Loader2, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { useNavigate } from 'react-router-dom';
@@ -33,7 +33,6 @@ const AIInvoiceImport: React.FC = () => {
       console.log('✅ AI Invoice imported:', data);
       setSuccess(true);
 
-      // Auto-refresh dashboard or go to invoices
       setTimeout(() => {
         navigate('/invoices');
       }, 1500);
@@ -83,7 +82,7 @@ const AIInvoiceImport: React.FC = () => {
             )}
             <h3 className="text-2xl font-semibold mb-2">AI Invoice Import</h3>
             <p className="text-muted-foreground mb-6">
-              Drag &amp; drop PDF or image<br />
+              Drag & drop PDF or image<br />
               <span className="text-xs">(or click to browse)</span>
             </p>
             <Button size="lg" disabled={uploading}>

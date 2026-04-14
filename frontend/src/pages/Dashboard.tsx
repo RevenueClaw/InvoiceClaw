@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useTheme } from 'next-themes';
 import AIInvoiceImport from '../components/AIInvoiceImport';
@@ -22,7 +22,6 @@ const Dashboard: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const { resolvedTheme } = useTheme();
 
-  // Dark-mode aware colors
   const COLORS = resolvedTheme === 'dark'
     ? ['#10b981', '#f59e0b', '#ef4444']
     : ['#10b981', '#f59e0b', '#ef4444'];
@@ -44,7 +43,13 @@ const Dashboard: React.FC = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`${import.meta.env.VITE_API_URL}/health`)
+    const apiUrl = import.meta.env.VITE_API_URL;
+    if (!apiUrl) {
+      setConnected(false);
+      setLoading(false);
+      return;
+    }
+    fetch(`${apiUrl}/health`)
       .then(res => res.json())
       .then(() => setConnected(true))
       .catch(() => setConnected(false))
@@ -59,14 +64,12 @@ const Dashboard: React.FC = () => {
     <div className="p-6 space-y-8">
       <h1 className="text-3xl font-bold">Dashboard</h1>
 
-      {/* AI Import Box – prominent at the top */}
       <AIInvoiceImport />
 
       <div className="text-sm text-muted-foreground">
-        Backend: {connected ? '✅ Connected' : '❌ Disconnected'} (VITE_API_URL is working!)
+        Backend: {connected ? '✅ Connected' : '❌ Disconnected'}
       </div>
 
-      {/* KPIs */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <Card><CardHeader className="pb-3"><CardTitle className="text-sm font-medium text-muted-foreground">Total Invoices</CardTitle></CardHeader><CardContent><div className="text-2xl font-bold">124</div></CardContent></Card>
         <Card><CardHeader className="pb-3"><CardTitle className="text-sm font-medium text-muted-foreground">Outstanding</CardTitle></CardHeader><CardContent><div className="text-2xl font-bold">$12,450</div></CardContent></Card>
@@ -74,7 +77,6 @@ const Dashboard: React.FC = () => {
         <Card><CardHeader className="pb-3"><CardTitle className="text-sm font-medium text-muted-foreground">Lifetime Revenue</CardTitle></CardHeader><CardContent><div className="text-2xl font-bold">$89,420</div></CardContent></Card>
       </div>
 
-      {/* Charts now respect dark mode */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <Card>
           <CardHeader>
@@ -83,7 +85,7 @@ const Dashboard: React.FC = () => {
           <CardContent>
             <ResponsiveContainer width="100%" height={300}>
               <PieChart>
-                <Pie data={mockStatusData} cx="50%" cy="50%" outerRadius={100} dataKey="value" label={({ percent }) => `${(percent * 100).toFixed(0)}%`}>
+                <Pie data={mockStatusData} cx="50%" cy="50%" outerRadius={100} dataKey="value" label={({ percent }) => percent ? `${(percent * 100).toFixed(0)}%` : ''}>
                   {mockStatusData.map((_, index) => (
                     <Cell key={`cell-${index}`} fill={COLORS[index]} />
                   ))}
