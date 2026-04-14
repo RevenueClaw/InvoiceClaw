@@ -1,23 +1,37 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { ThemeProvider } from 'next-themes';
+
 import Navbar from './components/Navbar';
+import AppSidebar from './components/AppSidebar';
+
 import Dashboard from './pages/Dashboard';
 import Invoices from './pages/Invoices';
 import CreateInvoice from './pages/CreateInvoice';
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
-        <Navbar />
-        <main className="pt-20 pb-12">
-          <Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/invoices" element={<Invoices />} />
-            <Route path="/create-invoice" element={<CreateInvoice />} />
-          </Routes>
-        </main>
-      </div>
-    </BrowserRouter>
+    <Router>
+      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <div className="flex h-screen flex-col bg-background">
+          {/* Top Navbar - full width */}
+          <Navbar />
+
+          <div className="flex flex-1 overflow-hidden">
+            {/* Collapsible Sidebar */}
+            <AppSidebar />
+
+            {/* Main content area */}
+            <main className="flex-1 overflow-auto bg-background p-6 md:p-8">
+              <Routes>
+                <Route path="/" element={<Dashboard />} />
+                <Route path="/invoices" element={<Invoices />} />
+                <Route path="/create" element={<CreateInvoice />} />
+              </Routes>
+            </main>
+          </div>
+        </div>
+      </ThemeProvider>
+    </Router>
   );
 }
 
