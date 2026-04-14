@@ -44,7 +44,7 @@ const AIInvoiceImport: React.FC = () => {
     }
   };
 
-  const onDrop = useCallback((e: React.DragEvent) => {
+  const onDrop = useCallback((e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     setIsDragging(false);
     const file = e.dataTransfer.files[0];
@@ -72,20 +72,28 @@ const AIInvoiceImport: React.FC = () => {
             className="hidden"
             id="invoice-upload"
           />
-          <label htmlFor="invoice-upload" className="cursor-pointer flex flex-col items-center">
+          <label 
+            htmlFor="invoice-upload" 
+            className="cursor-pointer block"
+          >
             {success ? (
-              <CheckCircle className="w-16 h-16 text-green-500 mb-4" />
+              <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
             ) : uploading ? (
-              <Loader2 className="w-16 h-16 animate-spin text-primary mb-4" />
+              <Loader2 className="w-16 h-16 animate-spin text-primary mx-auto mb-4" />
             ) : (
-              <Upload className="w-16 h-16 text-primary mb-4" />
+              <Upload className="w-16 h-16 text-primary mx-auto mb-4" />
             )}
             <h3 className="text-2xl font-semibold mb-2">AI Invoice Import</h3>
             <p className="text-muted-foreground mb-6">
               Drag & drop PDF or image<br />
-              <span className="text-xs">(or click to browse)</span>
+              <span className="text-xs">(or click anywhere in this box to upload)</span>
             </p>
-            <Button size="lg" disabled={uploading}>
+            <Button 
+              size="lg" 
+              disabled={uploading} 
+              type="button"
+              className="mx-auto"
+            >
               {uploading ? 'AI Extracting...' : 'Upload Invoice'}
             </Button>
           </label>
